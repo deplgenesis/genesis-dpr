@@ -1,6 +1,6 @@
 /* Genesis DPR wrapper - caches ONLY the small shell. Apps Script and Google traffic is never touched. */
-var CACHE = 'genesis-dpr-shell-v1';
-var SHELL = ['./', 'index.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'icon-maskable-512.png', 'apple-touch-icon.png'];
+var CACHE = 'genesis-dpr-shell-v2';
+var SHELL = ['./', 'index.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'icon-maskable-512.png', 'apple-touch-icon.png', 'sticker.png'];
 
 self.addEventListener('install', function (event) {
   event.waitUntil(

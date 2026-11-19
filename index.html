@@ -19,12 +19,12 @@
   #app { position: fixed; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 100%; border: 0; background: #ffffff; }
   #cover { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 10; background: #ffffff; color: #14171C; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; text-align: center; padding: 24px 30px; transition: opacity 250ms ease; }
   #cover.hide { opacity: 0; pointer-events: none; }
-  #cover img { width: 110px; height: 110px; }
-  #coverTitle { font-size: 22px; font-weight: 800; letter-spacing: -0.4px; }
-  #coverCo { font-size: 11px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; color: #6b717c; margin-top: -8px; }
-  #coverMsg { font-size: 14px; color: #5D636E; max-width: 300px; line-height: 1.45; }
+  #cover { gap: 34px; }
+  #cover img { width: 232px; max-width: 70vw; height: auto; display: block; }
+  #coverMsg { font-size: 15px; font-weight: 700; color: #14171C; max-width: 300px; line-height: 1.45; }
+  #coverMsg:empty { display: none; }
   #bar { width: 120px; height: 4px; border-radius: 2px; background: #E7E5DF; overflow: hidden; }
-  #bar i { display: block; width: 40%; height: 100%; background: #14171C; animation: slide 1.1s ease-in-out infinite; }
+  #bar i { display: block; width: 45%; height: 100%; border-radius: 2px; background: linear-gradient(90deg, #0b1f8a, #1a5fd0, #12a9d8, #14b3a6, #4cae2f); animation: slide 1.1s ease-in-out infinite; }
   @keyframes slide { 0% { transform: translateX(-100%); } 100% { transform: translateX(300%); } }
   #retry { display: none; min-height: 46px; padding: 0 28px; border: 0; border-radius: 14px; background: #14171C; color: #ffffff; font: 700 15px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; cursor: pointer; }
   #cover.err #bar { display: none; }
@@ -37,11 +37,9 @@
 <iframe id="app" title="Genesis DPR" allow="geolocation *; camera *; microphone *; web-share *; clipboard-write *; fullscreen *"></iframe>
 
 <div id="cover" role="status" aria-live="polite">
-  <img src="icon-192.png" alt="Project Genesis">
-  <div id="coverTitle">Genesis DPR</div>
-  <div id="coverCo">Dinesh Engineers Ltd.</div>
+  <img src="sticker.png" alt="Project Genesis">
   <div id="bar"><i></i></div>
-  <div id="coverMsg">Opening your report form...</div>
+  <div id="coverMsg"></div>
   <button type="button" id="retry">Try again</button>
 </div>
 
@@ -86,7 +84,7 @@ var APP_URL = 'https://script.google.com/macros/s/AKfycbwIKADjX6K9_T6NjSINnGyg2x
       showMsg('No internet. Connect to the internet and try again.', true);
       return;
     }
-    showMsg('Opening your report form...', false);
+    showMsg('', false);
     frame.src = targetUrl();
     slowTimer = setTimeout(function () {
       if (!loadedOnce) showMsg('This is taking longer than usual. Check your signal and try again.', true);
